@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Phishing Awareness Training</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f4f6f8;
+    }
+    .slide {
+      display: none;
+      padding: 40px;
+      height: 100vh;
+    }
+    .active {
+      display: block;
+    }
+    h1 { color: #2c3e50; }
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      background: #3498db;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    button:hover { background: #2980b9; }
+    .quiz-option {
+      display: block;
+      margin: 10px 0;
+      padding: 10px;
+      background: #ecf0f1;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .correct { background: #2ecc71 !important; color: white; }
+    .wrong { background: #e74c3c !important; color: white; }
+  </style>
+</head>
+<body>
+
+<!-- Slide 1 -->
+<div class="slide active">
+  <h1>Phishing Awareness Training</h1>
+  <p>Learn how to recognize and avoid phishing attacks.</p>
+  <button onclick="nextSlide()">Start</button>
+</div>
+
+<!-- Slide 2 -->
+<div class="slide">
+  <h1>What is Phishing?</h1>
+  <p>Phishing is a cyber attack where attackers trick users into revealing sensitive information like passwords, OTPs, or bank details.</p>
+  <button onclick="nextSlide()">Next</button>
+</div>
+
+<!-- Slide 3 -->
+<div class="slide">
+  <h1>How to Recognize Phishing Emails</h1>
+  <ul>
+    <li>Suspicious sender email address</li>
+    <li>Urgent or threatening language</li>
+    <li>Spelling and grammar mistakes</li>
+    <li>Unknown attachments or links</li>
+  </ul>
+  <button onclick="nextSlide()">Next</button>
+</div>
+
+<!-- Slide 4 -->
+<div class="slide">
+  <h1>Fake Websites</h1>
+  <ul>
+    <li>Check URL carefully (e.g., paypa1.com vs paypal.com)</li>
+    <li>Look for HTTPS (🔒 symbol)</li>
+    <li>Avoid entering credentials on unknown sites</li>
+  </ul>
+  <button onclick="nextSlide()">Next</button>
+</div>
+
+<!-- Slide 5 -->
+<div class="slide">
+  <h1>Social Engineering Tactics</h1>
+  <ul>
+    <li>Impersonation (bank, company, friend)</li>
+    <li>Fear tactics ("Your account will be blocked!")</li>
+    <li>Too-good-to-be-true offers</li>
+  </ul>
+  <button onclick="nextSlide()">Next</button>
+</div>
+
+<!-- Slide 6 -->
+<div class="slide">
+  <h1>Best Practices</h1>
+  <ul>
+    <li>Never share OTPs or passwords</li>
+    <li>Verify sender before clicking links</li>
+    <li>Use strong passwords</li>
+    <li>Enable 2-factor authentication</li>
+  </ul>
+  <button onclick="nextSlide()">Next</button>
+</div>
+
+<!-- Slide 7 (Quiz) -->
+<div class="slide">
+  <h1>Quiz Time!</h1>
+  <p>Which of the following is a phishing sign?</p>
+
+  <div class="quiz-option" onclick="checkAnswer(this, true)">
+    Urgent message asking for password
+  </div>
+
+  <div class="quiz-option" onclick="checkAnswer(this, false)">
+    Email from your known contact with no links
+  </div>
+
+  <div class="quiz-option" onclick="checkAnswer(this, false)">
+    Secure website with correct URL
+  </div>
+
+  <button onclick="nextSlide()">Next</button>
+</div>
+
+<!-- Slide 8 -->
+<div class="slide">
+  <h1>Real-World Example</h1>
+  <p>An attacker sends an email pretending to be your bank asking you to "verify your account" by clicking a fake link.</p>
+  <button onclick="nextSlide()">Finish</button>
+</div>
+
+<!-- Slide 9 -->
+<div class="slide">
+  <h1>Thank You!</h1>
+  <p>Stay alert. Stay safe from phishing attacks.</p>
+</div>
+
+<script>
+  let currentSlide = 0;
+  const slides = document.querySelectorAll(".slide");
+
+  function nextSlide() {
+    slides[currentSlide].classList.remove("active");
+    currentSlide++;
+    if (currentSlide < slides.length) {
+      slides[currentSlide].classList.add("active");
+    }
+  }
+
+  function checkAnswer(element, isCorrect) {
+    if (isCorrect) {
+      element.classList.add("correct");
+      alert("Correct!");
+    } else {
+      element.classList.add("wrong");
+      alert("Wrong answer!");
+    }
+  }
+</script>
+
+</body>
+</html>
